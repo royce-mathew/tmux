@@ -167,7 +167,7 @@ tmux_conf_theme_mode_fg="$tmux_conf_theme_colour_1"
 tmux_conf_theme_mode_bg="$tmux_conf_theme_colour_5"
 tmux_conf_theme_mode_attr="bold"
 
-# raised full-width status rail
+# Command strip: raised surface; the active pane border supplies the blue separator below it.
 tmux_conf_theme_status_fg="$tmux_conf_theme_colour_3"
 tmux_conf_theme_status_bg="$tmux_conf_theme_colour_2"
 tmux_conf_theme_status_attr="none"
@@ -197,9 +197,9 @@ tmux_conf_theme_terminal_title="#h ❐ #S ● #I #W"
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_window_status_fg="$tmux_conf_theme_colour_3"
-tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_1"
+tmux_conf_theme_window_status_bg="$tmux_conf_theme_colour_2"
 tmux_conf_theme_window_status_attr="none"
-tmux_conf_theme_window_status_format="#{?window_bell_flag,  #I #W ,#{?window_activity_flag,  #I #W ,#{?window_zoomed_flag,#[fg=$tmux_conf_theme_colour_6,bg=$tmux_conf_theme_colour_11,bold]  #I #W ,#{?window_last_flag,  #I #W , #I #W }}}}"
+tmux_conf_theme_window_status_format="#{?window_bell_flag, 󰂚 #I #W ,#{?window_activity_flag, 󰖲 #I #W ,#{?window_zoomed_flag,#[fg=$tmux_conf_theme_colour_6,bg=$tmux_conf_theme_colour_11,bold] 󰊓 #I #W ,#{?window_last_flag, 󰋚 #I #W ,  #I #W }}}}"
 
 # window current status style
 #   - built-in variables are:
@@ -215,7 +215,7 @@ tmux_conf_theme_window_status_format="#{?window_bell_flag,  #I #W ,#{?window_
 tmux_conf_theme_window_status_current_fg="$tmux_conf_theme_colour_6"
 tmux_conf_theme_window_status_current_bg="$tmux_conf_theme_colour_4"
 tmux_conf_theme_window_status_current_attr="bold"
-tmux_conf_theme_window_status_current_format="#{?window_bell_flag,  #I #W ,#{?window_activity_flag,  #I #W ,#{?window_zoomed_flag,  #I #W , #I #W }}}"
+tmux_conf_theme_window_status_current_format="#{?window_bell_flag, 󰂚 #I #W ,#{?window_activity_flag, 󰖲 #I #W ,#{?window_zoomed_flag, 󰊓 #I #W ,  #I #W }}}"
 
 # inactive-tab state priority: bell, activity, zoom, then last window.
 tmux_conf_theme_window_status_activity_fg="$tmux_conf_theme_colour_6"
@@ -230,10 +230,10 @@ tmux_conf_theme_window_status_last_fg="$tmux_conf_theme_colour_6"
 tmux_conf_theme_window_status_last_bg="$tmux_conf_theme_colour_10"
 tmux_conf_theme_window_status_last_attr="bold"
 
-# main-section Powerline arrows; window tabs have no sub-section dividers.
-tmux_conf_theme_left_separator_main='\uE0B0'
+# Command-strip layout: no Powerline chevrons; the raised rail and active pane border divide chrome from content.
+tmux_conf_theme_left_separator_main=""
 tmux_conf_theme_left_separator_sub=""
-tmux_conf_theme_right_separator_main='\uE0B2'
+tmux_conf_theme_right_separator_main=""
 tmux_conf_theme_right_separator_sub=""
 
 # status left/right content:
@@ -264,18 +264,17 @@ tmux_conf_theme_right_separator_sub=""
 #     - #{uptime_s}
 #     - #{username}
 #     - #{username_ssh}
-tmux_conf_theme_status_left=" #S "
-tmux_conf_theme_status_right="  #{pretty_pane_current_path} |  #{loadavg} | TMUX #{prefix}#{?pane_in_mode,#[fg=$tmux_conf_theme_colour_5,bold]COPY #[fg=$tmux_conf_theme_colour_12,nobold],}#{synchronized}#{root} |  %R "
+tmux_conf_theme_status_left=" 󰆍 #S "
+tmux_conf_theme_status_right="  #{pretty_pane_current_path} | 󰧑 #{loadavg} | #{prefix}#{?pane_in_mode,#[fg=$tmux_conf_theme_colour_5,bold] COPY #[fg=$tmux_conf_theme_colour_12,nobold],}#{synchronized}#{root} |  %R "
 
-# status left style
-tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_6"
-tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_9"
+# Compact session label and semantic foreground-only context on the shared rail.
+tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_4"
+tmux_conf_theme_status_left_bg="$tmux_conf_theme_colour_2"
 tmux_conf_theme_status_left_attr="bold"
 
-# Powerline chain: path, cached one-minute load, operating state, clock.
-tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_6,$tmux_conf_theme_colour_12,$tmux_conf_theme_colour_13"
-tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_14,$tmux_conf_theme_colour_15,$tmux_conf_theme_colour_16"
-tmux_conf_theme_status_right_attr="bold,bold,none,bold"
+tmux_conf_theme_status_right_fg="$tmux_conf_theme_colour_10,$tmux_conf_theme_colour_14,$tmux_conf_theme_colour_12,$tmux_conf_theme_colour_13"
+tmux_conf_theme_status_right_bg="$tmux_conf_theme_colour_2,$tmux_conf_theme_colour_2,$tmux_conf_theme_colour_2,$tmux_conf_theme_colour_2"
+tmux_conf_theme_status_right_attr="none,bold,none,bold"
 
 # conditional state indicators
 tmux_conf_theme_pairing=""
@@ -293,12 +292,12 @@ tmux_conf_theme_mouse_fg="none"
 tmux_conf_theme_mouse_bg="none"
 tmux_conf_theme_mouse_attr="none"
 
-tmux_conf_theme_root="ROOT"
+tmux_conf_theme_root=" ROOT"
 tmux_conf_theme_root_fg="$tmux_conf_theme_colour_17"
 tmux_conf_theme_root_bg="none"
 tmux_conf_theme_root_attr="bold"
 
-tmux_conf_theme_synchronized="SYNC"
+tmux_conf_theme_synchronized="󰓦 SYNC"
 tmux_conf_theme_synchronized_fg="$tmux_conf_theme_colour_11"
 tmux_conf_theme_synchronized_bg="none"
 tmux_conf_theme_synchronized_attr="bold"
