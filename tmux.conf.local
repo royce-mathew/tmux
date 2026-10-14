@@ -265,7 +265,7 @@ tmux_conf_theme_right_separator_sub=""
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=" 󰆍 #S "
-tmux_conf_theme_status_right="  #{pretty_pane_current_path} | 󰧑 #{loadavg} | #{prefix}#{?pane_in_mode,#[fg=$tmux_conf_theme_colour_5,bold] COPY #[fg=$tmux_conf_theme_colour_12,nobold],}#{synchronized}#{root} |  %R "
+tmux_conf_theme_status_right="  #{pretty_pane_current_path} | 󰧑 #{loadavg} | #{prefix}#{?pane_in_mode,#[fg=$tmux_conf_theme_colour_5#,bold] COPY #[fg=$tmux_conf_theme_colour_12#,nobold],}#{synchronized}#{root} |  %R "
 
 # Compact session label and semantic foreground-only context on the shared rail.
 tmux_conf_theme_status_left_fg="$tmux_conf_theme_colour_4"
